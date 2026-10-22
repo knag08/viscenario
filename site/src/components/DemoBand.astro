@@ -1,0 +1,33 @@
+---
+import { paths, site, words, type Lang } from '../data/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = words[lang];
+---
+
+<section class="bg-brand-500 text-white">
+  <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-12 sm:px-6 md:flex-row md:items-center md:justify-between">
+    <div>
+      <h2 class="text-2xl font-bold sm:text-3xl">
+        {lang === 'nb' ? 'Se Viscenario i bruk' : 'See Viscenario in action'}
+      </h2>
+      <p class="mt-2 max-w-xl text-white/90">
+        {
+          lang === 'nb'
+            ? 'Book en demo, så viser vi hvordan Viscenario passer til deres prosjekter.'
+            : 'Book a demo and we will show you how Viscenario fits your projects.'
+        }
+      </p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href={paths.demo[lang]} class="rounded-md bg-white px-5 py-3 font-semibold text-brand-700 hover:bg-brand-50">{t.bookDemo}</a>
+      <a href={site.phone.href} class="rounded-md border border-white/60 px-5 py-3 font-semibold text-white hover:bg-white/10">
+        {site.phone.display}
+      </a>
+    </div>
+  </div>
+</section>

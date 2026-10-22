@@ -1,0 +1,72 @@
+{
+  "en": {
+    "heading": "360° Mobile Platform",
+    "subheading": "for options, inspection, aftermarket, HSE, Quality System, Maintenance Documentation and integrations",
+    "heroImage": "media/2019/11/mobi.png",
+    "cta": {
+      "label": "Read More",
+      "href": "/products"
+    },
+    "counts": [
+      {
+        "value": "90000 +",
+        "label": "Users"
+      },
+      {
+        "value": "3500 +",
+        "label": "Projects"
+      }
+    ],
+    "logos": [
+      "media/2019/11/NP-BYGG-Logo.jpg",
+      "media/2019/11/Backe-logo.png",
+      "media/2018/06/logo-02.png",
+      "media/2018/06/logo-04.png",
+      "media/2018/06/logo-05.png",
+      "media/2018/06/logo-07.png",
+      "media/2019/11/m2-logo.jpg",
+      "media/2019/11/seltor-logo.png",
+      "media/2019/11/hent-logo.png",
+      "media/2019/11/Takst-logo-small-copy.jpg",
+      "media/2021/09/Selvaag_bolig_logo_samlet-03-small.png"
+    ]
+  },
+  "nb": {
+    "heading": "360° Mobilplattform",
+    "subheading": "for tilvalg, befaring, ettermarked, HMS, KS, FDV og integrasjoner",
+    "heroImage": "media/2019/11/mobi.png",
+    "cta": {
+      "label": "Les mer",
+      "href": "/nb/produkter/"
+    },
+    "counts": [
+      {
+        "value": "90000 +",
+        "label": "Brukere"
+      },
+      {
+        "value": "3500 +",
+        "label": "Prosjekter"
+      }
+    ],
+    "logos": [
+      "media/2018/06/logo-02.png",
+      "media/2019/11/Backe-logo.png",
+      "media/2018/06/logo-05.png",
+      "media/2018/06/logo-07.png",
+      "media/2022/04/M3-small.jpg",
+      "media/2020/03/kuben_logo-small-1.png",
+      "media/2020/03/Norefjell-ski-og-spa-small-1.png",
+      "media/2020/03/JI-Bygg-logo-small.png",
+      "media/2021/09/Stø-logo-140x210.png",
+      "media/2019/11/NP-BYGG-Logo.jpg",
+      "media/2019/11/seltor-logo.png",
+      "media/2019/11/hent-logo.png",
+      "media/2018/06/logo-04.png",
+      "media/2019/11/Takst-logo-small-copy.jpg",
+      "media/2020/09/AF_Gruppen-small.png",
+      "media/2021/09/Selvaag_bolig_logo_samlet-03-small.png",
+      "media/2021/09/Betonmast-logo-small.png"
+    ]
+  }
+}

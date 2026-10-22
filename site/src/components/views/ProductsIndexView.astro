@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../PageHero.astro';
+import DemoBand from '../DemoBand.astro';
+import groups from '../../data/product-groups.json';
+import { media } from '../../data/media';
+import { paths, words, type Lang } from '../../data/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = words[lang];
+const index = groups[lang];
+const intro =
+  lang === 'nb'
+    ? 'Viscenario dekker hele løpet fra tilvalg og befaring til overlevering, FDV-dokumentasjon, HMS, KS og drift — på mobil, nettbrett og web.'
+    : 'Viscenario covers the whole journey from options and inspection to hand over, maintenance documentation, HSE, quality assurance and operations — on phone, tablet and web.';
+---
+
+<Base lang={lang} title={index.title} description={intro} alternate={paths.products[lang === 'en' ? 'nb' : 'en']}>
+  <PageHero title={index.title} intro={intro} />
+  <section class="bg-ink-50">
+    <ul class="mx-auto grid max-w-6xl gap-6 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        index.groups.map((g) => (
+          <li class="flex flex-col rounded-xl border border-ink-100 bg-white p-6 shadow-sm">
+            <div class="flex items-center gap-4">
+              {g.icon && <Image src={media(g.icon)} alt="" width={56} height={56} class="h-14 w-14 shrink-0" />}
+              <h2 class="text-xl font-bold text-ink-900">{g.title}</h2>
+            </div>
+            <ul class="mt-5 flex-1 space-y-2">
+              {g.items.map((item) => (
+                <li>
+                  <a href={item.href} class="flex gap-2 text-ink-700 hover:text-brand-600">
+                    <span class="text-brand-500" aria-hidden="true">›</span>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a href={g.href} class="mt-6 inline-flex items-center gap-1 font-semibold text-brand-600 hover:text-brand-700">
+              {t.readMore}
+              <span class="sr-only">: {g.title}</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <DemoBand lang={lang} />
+</Base>

@@ -1,0 +1,374 @@
+{
+  "en": {
+    "title": "Products",
+    "groups": [
+      {
+        "title": "Options",
+        "icon": "media/2019/11/pr-01.png",
+        "items": [
+          {
+            "label": "Customer portal",
+            "href": "/products/options/"
+          },
+          {
+            "label": "Show Apartments documents",
+            "href": "/products/options/"
+          },
+          {
+            "label": "Questions & Answers",
+            "href": "/products/options/"
+          },
+          {
+            "label": "Issue Management",
+            "href": "/products/issue-management/"
+          },
+          {
+            "label": "News",
+            "href": "/products/options/"
+          },
+          {
+            "label": "Book a Meeting",
+            "href": "/products/options/"
+          }
+        ],
+        "href": "/products/options/"
+      },
+      {
+        "title": "Inspection",
+        "icon": "media/2019/11/pr-02.png",
+        "items": [
+          {
+            "label": "Internal inspections",
+            "href": "/products/inspection/"
+          },
+          {
+            "label": "Pre-inspection with clients",
+            "href": "/products/pre-inspection-with-clients/"
+          },
+          {
+            "label": "Hand Over",
+            "href": "/products/hand-over/"
+          },
+          {
+            "label": "1-year inspection",
+            "href": "/products/one-year-inspections/"
+          },
+          {
+            "label": "Task management",
+            "href": "/products/open-task-management/"
+          }
+        ],
+        "href": "/products/inspection/"
+      },
+      {
+        "title": "Warranty Period",
+        "icon": "media/2019/11/pr-05.png",
+        "items": [
+          {
+            "label": "Issue management",
+            "href": "/products/issue-management/"
+          },
+          {
+            "label": "1-year inspections",
+            "href": "/products/one-year-inspections/"
+          },
+          {
+            "label": "Portal for clients",
+            "href": "/products/warranty-period/"
+          },
+          {
+            "label": "Service agreements",
+            "href": "/products/service-agreements/"
+          }
+        ],
+        "href": "/products/warranty-period/"
+      },
+      {
+        "title": "HSE",
+        "icon": "media/2019/11/pr-04.png",
+        "items": [
+          {
+            "label": "JSA – Job Safety analyses",
+            "href": "/products/hse/"
+          },
+          {
+            "label": "Weekly HSE reporting",
+            "href": "/products/weekly-hse-reporting/"
+          },
+          {
+            "label": "HSE reporting",
+            "href": "/products/hse/"
+          },
+          {
+            "label": "Admission Control/Administration control",
+            "href": "/products/hse/"
+          }
+        ],
+        "href": "/products/hse/"
+      },
+      {
+        "title": "Quality Assurance",
+        "icon": "media/2019/11/pr-06.png",
+        "items": [
+          {
+            "label": "Checklist on mobile",
+            "href": "/products/checklist-on-mobile/"
+          },
+          {
+            "label": "Log",
+            "href": "/products/quality-assurance/"
+          },
+          {
+            "label": "Pictures",
+            "href": "/products/photo-documentation/"
+          },
+          {
+            "label": "Issue/Defect management",
+            "href": "/products/defect-management/"
+          },
+          {
+            "label": "Quality System",
+            "href": "/products/quality-assurance/"
+          },
+          {
+            "label": "Logistic booking",
+            "href": "/products/quality-assurance/"
+          }
+        ],
+        "href": "/products/quality-assurance/"
+      },
+      {
+        "title": "Maintenance Documentation",
+        "icon": "media/2019/11/pr-03.png",
+        "items": [
+          {
+            "label": "Schedule service agreements",
+            "href": "/products/maintenance-operational-documentation/"
+          },
+          {
+            "label": "Workflow for approval",
+            "href": "/products/maintenance-operational-documentation/"
+          },
+          {
+            "label": "Sub-contractors Hand Over their documents",
+            "href": "/products/collect-maintenance-documentation/"
+          }
+        ],
+        "href": "/products/maintenance-operational-documentation/"
+      },
+      {
+        "title": "Integration",
+        "icon": "media/2019/11/pr-07.png",
+        "items": [
+          {
+            "label": "SharePoint",
+            "href": "/products/integration/"
+          },
+          {
+            "label": "Microsoft Dynamics",
+            "href": "/products/integration/"
+          },
+          {
+            "label": "Super Office",
+            "href": "/products/integration/"
+          },
+          {
+            "label": "Bank ID",
+            "href": "/products/integration/"
+          },
+          {
+            "label": "ERP",
+            "href": "/products/integration/"
+          }
+        ],
+        "href": "/products/integration/"
+      }
+    ]
+  },
+  "nb": {
+    "title": "Produkter",
+    "groups": [
+      {
+        "title": "Tilvalg",
+        "icon": "media/2019/11/pr-01-1.png",
+        "items": [
+          {
+            "label": "Min side for boligkjøper",
+            "href": "/nb/products/tilvalg/"
+          },
+          {
+            "label": "Dokumenter",
+            "href": "/nb/products/tilvalg/"
+          },
+          {
+            "label": "Spm & Svar",
+            "href": "/nb/products/tilvalg/"
+          },
+          {
+            "label": "Reklamasjonshåndtering",
+            "href": "/nb/products/tilvalg/"
+          },
+          {
+            "label": "Nyheter",
+            "href": "/nb/products/tilvalg/"
+          }
+        ],
+        "href": "/nb/products/tilvalg/"
+      },
+      {
+        "title": "Befaring",
+        "icon": "media/2019/11/pr-02-1.png",
+        "items": [
+          {
+            "label": "Intern KS befaring",
+            "href": "/nb/products/befaring/"
+          },
+          {
+            "label": "Ferdigbefaring med kunde",
+            "href": "/nb/products/ferdigbefaring-med-kunde/"
+          },
+          {
+            "label": "Overtakelser",
+            "href": "/nb/products/overtakelsesbefaring/"
+          },
+          {
+            "label": "Ettårsbefaring",
+            "href": "/nb/products/ettarsbefaring/"
+          },
+          {
+            "label": "Mangelliste",
+            "href": "/nb/products/mangelliste/"
+          }
+        ],
+        "href": "/nb/products/befaring/"
+      },
+      {
+        "title": "Ettermarked",
+        "icon": "media/2019/11/pr-05-1.png",
+        "items": [
+          {
+            "label": "Reklamasjonshåndtering",
+            "href": "/nb/products/reklamasjonshandtering/"
+          },
+          {
+            "label": "Ettårsbefaring",
+            "href": "/nb/products/ettarsbefaring/"
+          },
+          {
+            "label": "Full oversikt over hva som skjedde I prosjektfasen",
+            "href": "/nb/products/ettermarked/"
+          },
+          {
+            "label": "FDV-dokumentasjonen tilgjengelig på nettbrett",
+            "href": "/nb/products/ettermarked/"
+          },
+          {
+            "label": "Egen side for kundene",
+            "href": "/nb/products/ettermarked/"
+          }
+        ],
+        "href": "/nb/products/ettermarked/"
+      },
+      {
+        "title": "HMS",
+        "icon": "media/2019/11/pr-04-1.png",
+        "items": [
+          {
+            "label": "RUH",
+            "href": "/nb/products/hms/"
+          },
+          {
+            "label": "SJA",
+            "href": "/nb/products/sja/"
+          },
+          {
+            "label": "Vernerunder",
+            "href": "/nb/products/vernerunde/"
+          },
+          {
+            "label": "Digital mannskapsliste/Inntakskontroll",
+            "href": "/nb/products/hms/"
+          }
+        ],
+        "href": "/nb/products/hms/"
+      },
+      {
+        "title": "KS",
+        "icon": "media/2019/11/pr-06-1.png",
+        "items": [
+          {
+            "label": "Sjekklister",
+            "href": "/nb/products/sjekklister/"
+          },
+          {
+            "label": "Logg",
+            "href": "/nb/products/ks/"
+          },
+          {
+            "label": "Bildedokumentasjon",
+            "href": "/nb/products/bildedokumentasjon/"
+          },
+          {
+            "label": "Avvikshåndtering",
+            "href": "/nb/products/avvik/"
+          },
+          {
+            "label": "Styringssystem",
+            "href": "/nb/products/styringssystem/"
+          },
+          {
+            "label": "Logistikk booking",
+            "href": "/nb/products/ks/"
+          }
+        ],
+        "href": "/nb/products/ks/"
+      },
+      {
+        "title": "FDV-dokumentasjon",
+        "icon": "media/2019/11/pr-03-1.png",
+        "items": [
+          {
+            "label": "Maler for næring og boligprosjekter",
+            "href": "/nb/products/fdv-dokumentasjon/"
+          },
+          {
+            "label": "Arbeidsflyt for innsending og godkjenning av FDV-dokumentasjon",
+            "href": "/nb/products/innsamling-av-fdv-dokumentasjon/"
+          },
+          {
+            "label": "Boligperm/FDV-dok",
+            "href": "/nb/products/fdv-dokumentasjon/"
+          }
+        ],
+        "href": "/nb/products/fdv-dokumentasjon/"
+      },
+      {
+        "title": "Integrasjon",
+        "icon": "media/2019/11/pr-07-1.png",
+        "items": [
+          {
+            "label": "SharePoint",
+            "href": "https://www.youtube.com/watch?v=nVbuNqVITb8"
+          },
+          {
+            "label": "Microsoft Dynamics",
+            "href": "/nb/products/integrasjon/"
+          },
+          {
+            "label": "Super Office",
+            "href": "/nb/products/integrasjon/"
+          },
+          {
+            "label": "Bank ID",
+            "href": "/nb/products/integrasjon/"
+          },
+          {
+            "label": "Agresso",
+            "href": "/nb/products/integrasjon/"
+          }
+        ],
+        "href": "/nb/products/integrasjon/"
+      }
+    ]
+  }
+}

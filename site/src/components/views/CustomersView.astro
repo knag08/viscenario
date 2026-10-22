@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../PageHero.astro';
+import DemoBand from '../DemoBand.astro';
+import customers from '../../data/customers.json';
+import { media } from '../../data/media';
+import { logoName } from '../../data/logos';
+import { paths, type Lang } from '../../data/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const list = customers[lang];
+const intro =
+  lang === 'nb'
+    ? 'Entreprenører, utbyggere og driftsselskaper bruker Viscenario på tvers av prosjekter og bygg.'
+    : 'Construction companies, developers and maintenance companies use Viscenario across their projects and buildings.';
+---
+
+<Base lang={lang} title={list.title} description={intro} alternate={paths.customers[lang === 'en' ? 'nb' : 'en']}>
+  <PageHero title={list.title} intro={intro} />
+  <section class="bg-ink-50">
+    <ul class="mx-auto grid max-w-6xl gap-6 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-3">
+      {
+        list.items.map((c) => {
+          const name = c.name ?? (c.logo ? logoName(c.logo) : '');
+          return (
+            <li class="flex flex-col overflow-hidden rounded-xl border border-ink-100 bg-white shadow-sm">
+              <div class="flex h-28 items-center justify-center border-b border-ink-100 px-6">
+                {c.logo && <Image src={media(c.logo)} alt={name} width={220} class="max-h-16 w-auto object-contain" />}
+              </div>
+              <div class="flex flex-1 flex-col p-5">
+                <h2 class="text-lg font-bold text-ink-900">{name}</h2>
+                <p class="mt-2 flex-1 text-ink-600">{c.text}</p>
+                {c.video && (
+                  <div class="video mt-4">
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${c.video}`}
+                      title={`${name} — Viscenario`}
+                      loading="lazy"
+                      allow="encrypted-media; picture-in-picture"
+                      allowfullscreen
+                    />
+                  </div>
+                )}
+              </div>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
+  <DemoBand lang={lang} />
+</Base>

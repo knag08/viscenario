@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import DetailView from '../../../components/views/DetailView.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('industries', (e) => e.id.startsWith('nb/'));
+  return entries.map((entry) => ({ params: { slug: entry.id.split('/')[1] }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+---
+
+<DetailView entry={entry} lang="nb" section="industry" />

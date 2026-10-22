@@ -1,0 +1,116 @@
+---
+import Logo from '../assets/brand/logo-light.svg';
+import { paths, detailBase, site, words, type Lang } from '../data/site';
+
+interface Props {
+  lang: Lang;
+  /** Where the language link goes: this page's pair, or the other home page. */
+  switchTo: string;
+}
+
+const { lang, switchTo } = Astro.props;
+const t = words[lang];
+const here = Astro.url.pathname;
+
+const nav = [
+  { label: t.nav.products, href: paths.products[lang], also: detailBase.products[lang] },
+  { label: t.nav.industry, href: paths.industry[lang], also: detailBase.industries[lang] },
+  { label: t.nav.company, href: paths.company[lang] },
+  { label: t.nav.customers, href: paths.customers[lang] },
+];
+const current = (item: (typeof nav)[number]) => here.startsWith(item.href) || (item.also && here.startsWith(item.also));
+---
+
+<header class="sticky top-0 z-40 bg-ink-900 text-white shadow-[0_1px_0_rgb(255_255_255/0.06)]">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20">
+    <a href={paths.home[lang]} class="shrink-0" aria-label={`${site.name} — ${lang === 'nb' ? 'forsiden' : 'home'}`}>
+      <Logo class="h-8 w-auto lg:h-10" aria-hidden="true" />
+    </a>
+
+    <nav aria-label={lang === 'nb' ? 'Hovedmeny' : 'Main'} class="hidden lg:block">
+      <ul class="flex items-center gap-1">
+        {
+          nav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={current(item) ? 'page' : undefined}
+                class:list={[
+                  'rounded-md px-3 py-2 text-[15px] font-semibold transition-colors',
+                  current(item) ? 'text-brand-500' : 'text-white/85 hover:text-white',
+                ]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="hidden items-center gap-3 lg:flex">
+      <a href={switchTo} hreflang={lang === 'en' ? 'nb' : 'en'} class="text-sm font-semibold text-white/75 hover:text-white">
+        {t.otherLanguage}
+      </a>
+      <a href={site.login} class="text-sm font-semibold text-white/75 hover:text-white">{t.login}</a>
+      <a
+        href={paths.demo[lang]}
+        class="rounded-md bg-brand-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-600"
+      >
+        {t.bookDemo}
+      </a>
+    </div>
+
+    <!-- A <details> menu works without JavaScript; the script only closes it on Escape. -->
+    <details class="group lg:hidden" id="mobile-menu">
+      <summary
+        class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-md text-white hover:bg-white/10 [&::-webkit-details-marker]:hidden"
+        aria-label={t.menu}
+      >
+        <svg class="h-6 w-6 group-open:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+        <svg class="hidden h-6 w-6 group-open:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path>
+        </svg>
+      </summary>
+      <div class="absolute inset-x-0 top-full border-t border-white/10 bg-ink-900 px-4 pb-6 pt-2 shadow-xl sm:px-6">
+        <nav aria-label={lang === 'nb' ? 'Hovedmeny' : 'Main'}>
+          <ul>
+            {
+              nav.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    aria-current={current(item) ? 'page' : undefined}
+                    class:list={[
+                      'block border-b border-white/10 py-3 text-base font-semibold',
+                      current(item) ? 'text-brand-500' : 'text-white',
+                    ]}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+        <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <a href={paths.demo[lang]} class="rounded-md bg-brand-500 px-4 py-2.5 text-sm font-semibold text-white">{t.bookDemo}</a>
+          <a href={site.login} class="text-sm font-semibold text-white/80">{t.login}</a>
+          <a href={switchTo} hreflang={lang === 'en' ? 'nb' : 'en'} class="text-sm font-semibold text-white/80">{t.otherLanguage}</a>
+        </div>
+      </div>
+    </details>
+  </div>
+</header>
+
+<script>
+  const menu = document.getElementById('mobile-menu') as HTMLDetailsElement | null;
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu?.open) {
+      menu.open = false;
+      menu.querySelector('summary')?.focus();
+    }
+  });
+</script>

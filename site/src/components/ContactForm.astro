@@ -1,0 +1,105 @@
+---
+import { site, words, type Lang } from '../data/site';
+
+interface Props {
+  lang: Lang;
+  /** Prefix for the field ids, so two forms on one page never share an id. */
+  id?: string;
+  /** What the message is about, carried into the email's subject line. */
+  topic?: string;
+}
+
+const { lang, id = 'contact', topic } = Astro.props;
+const t = words[lang].form;
+const enabled = site.web3formsKey !== '';
+const subject = topic ? `${t.subject} — ${topic}` : t.subject;
+const field =
+  'mt-1 block w-full rounded-md border border-ink-200 bg-white px-3 py-2.5 text-base text-ink-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30';
+---
+
+<!--
+  Web3Forms receives the post and emails it on. Without JavaScript the form
+  posts normally and Web3Forms shows its own confirmation page; with it, the
+  page stays put and says what happened.
+-->
+<form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  class="contact-form space-y-4"
+  data-sent={t.sent}
+  data-failed={t.failed}
+  data-sending={t.sending}
+  data-email={site.email}
+>
+  <input type="hidden" name="access_key" value={site.web3formsKey} />
+  <input type="hidden" name="subject" value={subject} />
+  <input type="hidden" name="from_name" value="viscenario.com" />
+  <!-- Honeypot: people never see this box, so anything typed into it is a bot. -->
+  <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+  <div>
+    <label for={`${id}-name`} class="text-sm font-semibold text-ink-800">{t.name}</label>
+    <input id={`${id}-name`} name="name" type="text" required autocomplete="name" class={field} />
+  </div>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div>
+      <label for={`${id}-email`} class="text-sm font-semibold text-ink-800">{t.email}</label>
+      <input id={`${id}-email`} name="email" type="email" required autocomplete="email" class={field} />
+    </div>
+    <div>
+      <label for={`${id}-phone`} class="text-sm font-semibold text-ink-800">{t.phone}</label>
+      <input id={`${id}-phone`} name="phone" type="tel" autocomplete="tel" class={field} />
+    </div>
+  </div>
+  <div>
+    <label for={`${id}-message`} class="text-sm font-semibold text-ink-800">{t.message}</label>
+    <textarea id={`${id}-message`} name="message" rows="5" required class={field}></textarea>
+  </div>
+
+  {
+    enabled ? (
+      <button
+        type="submit"
+        class="rounded-md bg-brand-500 px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-600 disabled:opacity-60"
+      >
+        {t.send}
+      </button>
+    ) : (
+      <p class="rounded-md bg-brand-50 p-4 text-sm text-ink-800">
+        {t.offline} <a class="font-semibold text-brand-700 underline" href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+    )
+  }
+  <p class="form-status text-sm" role="status" aria-live="polite"></p>
+</form>
+
+<script>
+  for (const form of document.querySelectorAll<HTMLFormElement>('form.contact-form')) {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const status = form.querySelector<HTMLElement>('.form-status')!;
+      const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      const { sent, failed, sending, email } = form.dataset;
+      if (button) button.disabled = true;
+      status.className = 'form-status text-sm text-ink-600';
+      status.textContent = sending ?? '';
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || result.success === false) throw new Error(result.message || response.statusText);
+        form.reset();
+        status.className = 'form-status rounded-md bg-green-50 p-3 text-sm font-semibold text-green-800';
+        status.textContent = sent ?? '';
+      } catch {
+        status.className = 'form-status rounded-md bg-red-50 p-3 text-sm text-red-800';
+        status.textContent = `${failed} ${email}.`;
+      } finally {
+        if (button) button.disabled = false;
+      }
+    });
+  }
+</script>
